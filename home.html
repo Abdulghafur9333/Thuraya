@@ -102,12 +102,16 @@
             transform: scale(1.05);
         }
 
-        .arrow-down {
+        .arrow-down, .arrow-up {
             font-size: 3em;
             color: #f0c674;
             cursor: pointer;
             margin-top: 40px;
             animation: bounce 2s infinite;
+        }
+
+        .arrow-up {
+            margin-top: 20px;
         }
 
         /* Bouncing Arrow Animation */
@@ -211,7 +215,7 @@
                 max-width: 90%;
             }
 
-            .arrow-down {
+            .arrow-down, .arrow-up {
                 font-size: 2.5em;
             }
         }
@@ -228,7 +232,7 @@
         <p data-aos="fade-up" data-aos-delay="200">Crafted for the stars</p>
     </header>
 
-    <!-- Arrow Down Button -->
+    <!-- Arrow Down Button (Header to Intro Text) -->
     <div class="arrow-down" onclick="window.scrollTo({ top: document.querySelector('.main-content').offsetTop, behavior: 'smooth' });">
         <i class="fas fa-chevron-down"></i>
     </div>
@@ -236,12 +240,17 @@
     <!-- Main Content Section -->
     <div class="main-content">
         <div class="intro-text" data-aos="fade-left" data-aos-delay="400">
-            <h2>The Galaxy Collection</h2>
+            <h2>Thuraya Collection</h2>
             <p>Step into the cosmos with Thuraya’s signature rings. Each piece is a bridge between the stars, inspired by the vast beauty of the universe.</p>
             <p><strong>Thuraya is a tribute to my late mom, whose grace continues to guide me in every creation.</strong></p>
             <a href="#" class="cta-button">Read More</a>
         </div>
         <img src="Artboard 4@2x-100 (2).jpg" alt="Thuraya Ring" data-aos="fade-right" data-aos-delay="400" />
+    </div>
+
+    <!-- Arrow Down Button (Intro Text to Showcase) -->
+    <div class="arrow-down" onclick="window.scrollTo({ top: document.querySelector('.showcase').offsetTop, behavior: 'smooth' });">
+        <i class="fas fa-chevron-down"></i>
     </div>
 
     <!-- Showcase Section -->
@@ -271,6 +280,11 @@
     <!-- See More Button -->
     <div style="text-align: center; padding: 20px;">
         <a href="#" class="cta-button">See More</a>
+    </div>
+
+    <!-- Arrow Up Button (Showcase to Footer) -->
+    <div class="arrow-up" onclick="window.scrollTo({ top: document.querySelector('footer').offsetTop, behavior: 'smooth' });">
+        <i class="fas fa-chevron-up"></i>
     </div>
 
     <!-- Footer Section -->
