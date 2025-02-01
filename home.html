@@ -102,16 +102,22 @@
             transform: scale(1.05);
         }
 
-        .arrow-down, .arrow-up {
-            font-size: 3em;
+        /* Arrow buttons for scrolling */
+        .scroll-arrow {
+            font-size: 2.5em;
             color: #f0c674;
             cursor: pointer;
+            transition: transform 0.3s ease;
             margin-top: 40px;
-            animation: bounce 2s infinite;
         }
 
-        .arrow-up {
-            margin-top: 20px;
+        .scroll-arrow:hover {
+            transform: scale(1.2);
+        }
+
+        .scroll-button-container {
+            text-align: center;
+            margin-top: 30px;
         }
 
         /* Bouncing Arrow Animation */
@@ -215,8 +221,8 @@
                 max-width: 90%;
             }
 
-            .arrow-down, .arrow-up {
-                font-size: 2.5em;
+            .scroll-arrow {
+                font-size: 3em;
             }
         }
     </style>
@@ -232,15 +238,15 @@
         <p data-aos="fade-up" data-aos-delay="200">Crafted for the stars</p>
     </header>
 
-    <!-- Arrow Down Button (Header to Intro Text) -->
-    <div class="arrow-down" onclick="window.scrollTo({ top: document.querySelector('.main-content').offsetTop, behavior: 'smooth' });">
-        <i class="fas fa-chevron-down"></i>
+    <!-- Scroll Arrow Button (Header to Intro Text) -->
+    <div class="scroll-button-container">
+        <i class="fas fa-arrow-down scroll-arrow" onclick="window.scrollTo({ top: document.querySelector('.main-content').offsetTop, behavior: 'smooth' });"></i>
     </div>
 
     <!-- Main Content Section -->
     <div class="main-content">
         <div class="intro-text" data-aos="fade-left" data-aos-delay="400">
-            <h2>Thuraya Collection</h2>
+            <h2>The Galaxy Collection</h2>
             <p>Step into the cosmos with Thuraya’s signature rings. Each piece is a bridge between the stars, inspired by the vast beauty of the universe.</p>
             <p><strong>Thuraya is a tribute to my late mom, whose grace continues to guide me in every creation.</strong></p>
             <a href="#" class="cta-button">Read More</a>
@@ -248,9 +254,9 @@
         <img src="Artboard 4@2x-100 (2).jpg" alt="Thuraya Ring" data-aos="fade-right" data-aos-delay="400" />
     </div>
 
-    <!-- Arrow Down Button (Intro Text to Showcase) -->
-    <div class="arrow-down" onclick="window.scrollTo({ top: document.querySelector('.showcase').offsetTop, behavior: 'smooth' });">
-        <i class="fas fa-chevron-down"></i>
+    <!-- Scroll Arrow Button (Intro Text to Showcase) -->
+    <div class="scroll-button-container">
+        <i class="fas fa-arrow-down scroll-arrow" onclick="window.scrollTo({ top: document.querySelector('.showcase').offsetTop, behavior: 'smooth' });"></i>
     </div>
 
     <!-- Showcase Section -->
@@ -282,9 +288,9 @@
         <a href="#" class="cta-button">See More</a>
     </div>
 
-    <!-- Arrow Up Button (Showcase to Footer) -->
-    <div class="arrow-up" onclick="window.scrollTo({ top: document.querySelector('footer').offsetTop, behavior: 'smooth' });">
-        <i class="fas fa-chevron-up"></i>
+    <!-- Scroll Arrow Button (Showcase to Footer) -->
+    <div class="scroll-button-container">
+        <i class="fas fa-arrow-up scroll-arrow" onclick="window.scrollTo({ top: document.querySelector('footer').offsetTop, behavior: 'smooth' });"></i>
     </div>
 
     <!-- Footer Section -->
