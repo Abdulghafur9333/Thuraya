@@ -24,7 +24,7 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #0c0c0c;
+            background-color: #1c1c1c; /* Dark Background */
             color: #fff;
             overflow-x: hidden;
             margin: 0;
@@ -42,7 +42,7 @@
 
         header {
             text-align: center;
-            padding: 50px 20px;
+            padding: 80px 20px;
             position: relative;
             z-index: 2;
             margin-top: 40px;
@@ -54,15 +54,15 @@
         }
 
         header p {
-            font-size: 1.4em;
-            color: #e0b56b;
+            font-size: 1.5em;
+            color: #f0c674; /* Gold Color */
             margin-top: 10px;
             font-weight: bold;
             letter-spacing: 1px;
         }
 
         .intro-text {
-            background-color: rgba(0, 0, 0, 0.7);
+            background-color: rgba(0, 0, 0, 0.8);
             padding: 40px;
             border-radius: 15px;
             box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);
@@ -73,8 +73,8 @@
         }
 
         .intro-text h2 {
-            font-size: 3em;
-            color: #f0c674;
+            font-size: 3.2em;
+            color: #f0c674; /* Gold Color */
             margin-bottom: 20px;
             font-weight: bold;
         }
@@ -85,8 +85,8 @@
         }
 
         .cta-button {
-            background-color: #f0c674;
-            color: #0c0c0c;
+            background-color: #f0c674; /* Gold Color */
+            color: #1c1c1c;
             padding: 15px 30px;
             font-size: 1.4em;
             border: none;
@@ -98,8 +98,29 @@
         }
 
         .cta-button:hover {
-            background-color: #e0b56b;
+            background-color: #e0b56b; /* Slightly darker gold */
             transform: scale(1.05);
+        }
+
+        .arrow-down {
+            font-size: 3em;
+            color: #f0c674;
+            cursor: pointer;
+            margin-top: 40px;
+            animation: bounce 2s infinite;
+        }
+
+        /* Bouncing Arrow Animation */
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
         }
 
         .main-content {
@@ -189,6 +210,10 @@
             .intro-text {
                 max-width: 90%;
             }
+
+            .arrow-down {
+                font-size: 2.5em;
+            }
         }
     </style>
 </head>
@@ -200,15 +225,20 @@
     <!-- Header Section -->
     <header>
         <img src="Asset 13@3x.png" alt="Thuraya Rings" data-aos="fade-up" />
-        <p data-aos="fade-up" data-aos-delay="200">Where the galaxy meets elegance</p>
+        <p data-aos="fade-up" data-aos-delay="200">Crafted for the stars</p>
     </header>
+
+    <!-- Arrow Down Button -->
+    <div class="arrow-down" onclick="window.scrollTo({ top: document.querySelector('.main-content').offsetTop, behavior: 'smooth' });">
+        <i class="fas fa-chevron-down"></i>
+    </div>
 
     <!-- Main Content Section -->
     <div class="main-content">
         <div class="intro-text" data-aos="fade-left" data-aos-delay="400">
             <h2>The Galaxy Collection</h2>
-            <p>Step into the stars with Thuraya’s signature rings, designed to mirror the beauty and mystery of the galaxy. Each ring is a piece of the universe brought to life through expert craftsmanship and cosmic inspiration.</p>
-            <p><strong>Thuraya is named in loving memory of my late mom. Her strength and grace continue to inspire each design.</strong></p>
+            <p>Step into the cosmos with Thuraya’s signature rings. Each piece is a bridge between the stars, inspired by the vast beauty of the universe.</p>
+            <p><strong>Thuraya is a tribute to my late mom, whose grace continues to guide me in every creation.</strong></p>
             <a href="#" class="cta-button">Read More</a>
         </div>
         <img src="Artboard 4@2x-100 (2).jpg" alt="Thuraya Ring" data-aos="fade-right" data-aos-delay="400" />
@@ -231,6 +261,16 @@
             <h3>Nebula Ring</h3>
             <p>Inspired by the vastness of the nebula, a stunning ring for the bold.</p>
         </div>
+        <div class="showcase-item">
+            <img src="ring4.jpg" alt="Galaxy’s Embrace" />
+            <h3>Galaxy’s Embrace</h3>
+            <p>A cosmic embrace, a perfect blend of elegance and mystery.</p>
+        </div>
+    </div>
+
+    <!-- See More Button -->
+    <div style="text-align: center; padding: 20px;">
+        <a href="#" class="cta-button">See More</a>
     </div>
 
     <!-- Footer Section -->
@@ -246,45 +286,82 @@
     </script>
 
     <!-- Particles.js Script for Starfield Animation -->
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
         particlesJS("particles-js", {
             "particles": {
                 "number": {
-                    "value": 100,
+                    "value": 80,
                     "density": {
                         "enable": true,
                         "value_area": 800
                     }
                 },
+                "color": {
+                    "value": "#f0c674" /* Gold */
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": true,
+                    "anim": {
+                        "enable": true,
+                        "speed": 1,
+                        "opacity_min": 0.1
+                    }
+                },
                 "size": {
                     "value": 3,
-                    "random": true
+                    "random": true,
+                    "anim": {
+                        "enable": false
+                    }
                 },
                 "line_linked": {
                     "enable": true,
-                    "distance": 100,
-                    "color": "#ffffff",
-                    "opacity": 0.5,
+                    "distance": 150,
+                    "color": "#f0c674", /* Gold */
+                    "opacity": 0.4,
                     "width": 1
                 },
                 "move": {
                     "enable": true,
-                    "speed": 1,
+                    "speed": 2,
                     "direction": "none",
                     "random": false,
                     "straight": false,
-                    "out_mode": "out"
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
                 }
             },
             "interactivity": {
+                "detect_on": "canvas",
                 "events": {
                     "onhover": {
                         "enable": true,
                         "mode": "repulse"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
                     }
                 }
-            }
+            },
+            "retina_detect": true
         });
     </script>
 
