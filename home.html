@@ -27,7 +27,6 @@
             background-color: #0c0c0c;
             color: #fff;
             overflow-x: hidden;
-            height: 100vh;
             margin: 0;
         }
 
@@ -43,13 +42,14 @@
 
         header {
             text-align: center;
-            padding: 100px 20px;
+            padding: 50px 20px;
             position: relative;
             z-index: 2;
+            margin-top: 40px;
         }
 
         header img {
-            max-width: 400px; /* Adjust the image size */
+            max-width: 350px;
             height: auto;
         }
 
@@ -57,28 +57,26 @@
             font-size: 1.4em;
             color: #e0b56b;
             margin-top: 10px;
-        }
-
-        .main-content {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            padding: 60px 40px;
+            font-weight: bold;
+            letter-spacing: 1px;
         }
 
         .intro-text {
-            max-width: 450px;
             background-color: rgba(0, 0, 0, 0.7);
-            padding: 30px;
-            border-radius: 10px;
+            padding: 40px;
+            border-radius: 15px;
             box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);
+            max-width: 550px;
+            text-align: center;
+            margin: 0 auto;
             animation: fadeIn 2s ease-out;
         }
 
         .intro-text h2 {
-            font-size: 2.8em;
+            font-size: 3em;
             color: #f0c674;
             margin-bottom: 20px;
+            font-weight: bold;
         }
 
         .intro-text p {
@@ -90,17 +88,65 @@
             background-color: #f0c674;
             color: #0c0c0c;
             padding: 15px 30px;
-            font-size: 1.3em;
+            font-size: 1.4em;
             border: none;
             cursor: pointer;
-            border-radius: 8px;
+            border-radius: 10px;
             text-decoration: none;
             transition: all 0.3s ease;
+            font-weight: bold;
         }
 
         .cta-button:hover {
             background-color: #e0b56b;
             transform: scale(1.05);
+        }
+
+        .main-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 60px 20px;
+            flex-wrap: wrap;
+        }
+
+        .main-content .intro-text {
+            margin-bottom: 30px;
+        }
+
+        .main-content img {
+            max-width: 350px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        .showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            padding: 60px 20px;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        .showcase-item {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .showcase-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.7);
+        }
+
+        .showcase-item img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 20px;
         }
 
         footer {
@@ -124,6 +170,26 @@
             0% { opacity: 0; }
             100% { opacity: 1; }
         }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                padding: 60px 20px;
+            }
+
+            .main-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .showcase {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .intro-text {
+                max-width: 90%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -142,9 +208,29 @@
         <div class="intro-text" data-aos="fade-left" data-aos-delay="400">
             <h2>The Galaxy Collection</h2>
             <p>Step into the stars with Thuraya’s signature rings, designed to mirror the beauty and mystery of the galaxy. Each ring is a piece of the universe brought to life through expert craftsmanship and cosmic inspiration.</p>
-            <a href="#" class="cta-button">Explore Our Collection</a>
+            <p><strong>Thuraya is named in loving memory of my late mom. Her strength and grace continue to inspire each design.</strong></p>
+            <a href="#" class="cta-button">Read More</a>
         </div>
-        <img src="Artboard 4@2x-100 (2).jpg" alt="Thuraya Ring" width="300" style="border-radius: 10px; box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);" data-aos="fade-right" data-aos-delay="400" />
+        <img src="Artboard 4@2x-100 (2).jpg" alt="Thuraya Ring" data-aos="fade-right" data-aos-delay="400" />
+    </div>
+
+    <!-- Showcase Section -->
+    <div class="showcase" data-aos="fade-up" data-aos-delay="600">
+        <div class="showcase-item">
+            <img src="ring1.jpg" alt="Elegant Star Ring" />
+            <h3>Starry Elegance</h3>
+            <p>A touch of the galaxy’s elegance, crafted to perfection.</p>
+        </div>
+        <div class="showcase-item">
+            <img src="ring2.jpg" alt="Cosmic Beauty Ring" />
+            <h3>Cosmic Beauty</h3>
+            <p>Embrace the cosmic charm with this one-of-a-kind masterpiece.</p>
+        </div>
+        <div class="showcase-item">
+            <img src="ring3.jpg" alt="Nebula Ring" />
+            <h3>Nebula Ring</h3>
+            <p>Inspired by the vastness of the nebula, a stunning ring for the bold.</p>
+        </div>
     </div>
 
     <!-- Footer Section -->
