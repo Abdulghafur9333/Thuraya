@@ -3,403 +3,203 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thuraya Rings | The Galaxy Collection</title>
-
-    <!-- Google Font for Elegant Typography -->
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
-    <!-- AOS Animation Library for Scroll Animations -->
-    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-
-    <!-- Font Awesome for Icons -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-
+    <title>About Us - Thuraya Antiques</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
-        /* General Reset */
-        * {
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Playfair Display', serif;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #1c1c1c; /* Dark Background */
+            background-color: #1a1a1a;
             color: #fff;
-            overflow-x: hidden;
-            margin: 0;
         }
-
-        /* Cosmic Background (using particles.js) */
-        #particles-js {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-
+        
         header {
-            text-align: center;
-            padding: 80px 20px;
-            position: relative;
-            z-index: 2;
-            margin-top: 40px;
-        }
-
-        header img {
-            max-width: 100px;
-            height: auto;
-        }
-
-        header p {
-            font-size: 1.5em;
-            color: #f0c674; /* Gold Color */
-            margin-top: 10px;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
-
-        .intro-text {
-            background-color: rgba(0, 0, 0, 0.8);
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);
-            max-width: 550px;
-            text-align: center;
-            margin: 0 auto;
-            animation: fadeIn 2s ease-out;
-        }
-
-        .intro-text h2 {
-            font-size: 3.2em;
-            color: #f0c674; /* Gold Color */
-            margin-bottom: 20px;
-            font-weight: bold;
-        }
-
-        .intro-text p {
-            font-size: 1.1em;
-            margin-bottom: 20px;
-        }
-
-        .cta-button {
-            background-color: #f0c674; /* Gold Color */
-            color: #1c1c1c;
-            padding: 15px 30px;
-            font-size: 1.4em;
-            border: none;
-            cursor: pointer;
-            border-radius: 10px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-weight: bold;
-        }
-
-        .cta-button:hover {
-            background-color: #e0b56b; /* Slightly darker gold */
-            transform: scale(1.05);
-        }
-
-        /* Arrow buttons for scrolling */
-        .scroll-arrow {
-            font-size: 2.5em;
-            color: #f0c674;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-            margin-top: 40px;
-        }
-
-        .scroll-arrow:hover {
-            transform: scale(1.2);
-        }
-
-        .scroll-button-container {
-            text-align: center;
-            margin-top: 30px;
-        }
-
-        /* Bouncing Arrow Animation */
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
-            }
-            40% {
-                transform: translateY(-10px);
-            }
-            60% {
-                transform: translateY(-5px);
-            }
-        }
-
-        .main-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 60px 20px;
+            padding: 15px 50px;
+            background-color: black;
+        }
+        
+        .logo img {
+            width: 150px;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+        
+        nav ul li {
+            margin: 0 15px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+        
+        nav ul li a:hover, .active {
+            color: gold;
+        }
+        
+        .about-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 50px 10%;
+            gap: 50px;
+            position: relative;
+            overflow: hidden;
             flex-wrap: wrap;
         }
-
-        .main-content .intro-text {
-            margin-bottom: 30px;
-        }
-
-        .main-content img {
-            max-width: 350px;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);
-        }
-
-        .showcase {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            padding: 60px 20px;
-            text-align: center;
-            margin: 0 auto;
-        }
-
-        .showcase-item {
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .showcase-item:hover {
-            transform: scale(1.05);
-            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.7);
-        }
-
-        .showcase-item img {
+        
+        .about-container::before {
+            content: "";
+            position: absolute;
             width: 100%;
-            border-radius: 8px;
-            margin-bottom: 20px;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 1%, rgba(0,0,0,0) 50%);
+            pointer-events: none;
         }
 
-        footer {
+        .about-container::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 100"><circle cx="10" cy="10" r="1" fill="white"/><circle cx="40" cy="20" r="0.8" fill="white"/><circle cx="70" cy="50" r="1.2" fill="white"/><circle cx="90" cy="80" r="0.9" fill="white"/></svg>');
+            opacity: 0.6;
+            pointer-events: none;
+        }
+        
+        .about-text {
+            flex: 1;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        .about-text h1 {
+            color: gold;
+            font-size: 36px;
+        }
+        
+        .about-text p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        
+        .about-image {
+            flex: 1;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        
+        .history {
+            text-align: center;
+            padding: 50px 10%;
+            background-color: #222;
+        }
+        
+        .history h2 {
+            color: gold;
+        }
+        
+        .history-timeline {
+            max-width: 800px;
+            margin: auto;
+        }
+        
+        .history-item {
+            background: #333;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            color: white;
+        }
+        
+        .social {
             text-align: center;
             padding: 20px;
-            background-color: #0c0c0c;
-            color: #aaa;
+            background: black;
         }
 
-        footer a {
-            color: #f0c674;
-            text-decoration: none;
+        .social a {
+            color: gold;
+            font-size: 24px;
+            margin: 0 15px;
+            transition: 0.3s;
         }
-
-        footer a:hover {
-            text-decoration: underline;
+        
+        .social a:hover {
+            color: white;
         }
-
-        /* Fade-In Animation */
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
+        
+        footer {
+            background: black;
+            color: white;
+            text-align: center;
+            padding: 20px;
         }
-
-        /* Responsive Design */
+        
         @media (max-width: 768px) {
-            header {
-                padding: 60px 20px;
-            }
-
-            .main-content {
+            .about-container {
                 flex-direction: column;
-                text-align: center;
             }
-
-            .showcase {
-                grid-template-columns: 1fr 1fr;
+            .about-image {
+                order: 2;
             }
-
-            .intro-text {
-                max-width: 90%;
-            }
-
-            .scroll-arrow {
-                font-size: 3em;
+            .about-text {
+                order: 1;
             }
         }
     </style>
 </head>
 <body>
-    
+    <header>
+        <div class="logo">
+            <img src="Asset 14@3x.png" alt="Thuraya Antiques Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="about.html" class="active">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <!-- Particles.js Background -->
-    <div id="particles-js"></div>
+    <section class="about-container">
+        <div class="about-text">
+            <h1>About Thuraya</h1>
+            <p>Thuraya is more than a jewelry store—it is a tribute to a legacy. Named in honor of my late mother, Thuraya embodies elegance, strength, and timeless beauty. Each piece in our collection tells a story, preserving history in its finest form.</p>
+            <p>Our journey began with a passion for antique craftsmanship, curating rare and exquisite jewelry that transcends generations. From delicate heirlooms to bold statement pieces, Thuraya brings the past into the present, celebrating the artistry of time.</p>
+        </div>
+        <div class="about-image">
+            <img src="Artboard 1 copy@2x-100 (2).jpg" alt="Antique Jewelry Showcase">
+        </div>
+    </section>
 
-   
-    <!-- Showcase Section -->
-    <div class="showcase" data-aos="fade-up" data-aos-delay="600">
-        <div class="showcase-item">
-            <img src="ring1.jpg" alt="Elegant Star Ring" />
-            <h3>Starry Elegance</h3>
-            <p>A touch of the galaxy’s elegance, crafted to perfection.</p>
+    <section class="social">
+        <h2>Follow Us</h2>
+        <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-pinterest"></i></a>
+    </section>
 
-        </div>
-        <div class="showcase-item">
-            <img src="ring2.jpg" alt="Cosmic Beauty Ring" />
-            <h3>Cosmic Beauty</h3>
-            <p>Embrace the cosmic charm with this one-of-a-kind masterpiece.</p>
-        </div>
-        <div class="showcase-item">
-            <img src="ring3.jpg" alt="Nebula Ring" />
-            <h3>Nebula Ring</h3>
-            <p>Inspired by the vastness of the nebula, a stunning ring for the bold.</p>
-        </div>
-        <div class="showcase-item">
-            <img src="ring4.jpg" alt="Galaxy’s Embrace" />
-            <h3>Galaxy’s Embrace</h3>
-            <p>A cosmic embrace, a perfect blend of elegance and mystery.</p>
-        </div>
-        <div class="showcase-item">
-            <img src="ring4.jpg" alt="Galaxy’s Embrace" />
-            <h3>Galaxy’s Embrace</h3>
-            <p>A cosmic embrace, a perfect blend of elegance and mystery.</p>
-        </div>
-        <div class="showcase-item">
-            <img src="ring4.jpg" alt="Galaxy’s Embrace" />
-            <h3>Galaxy’s Embrace</h3>
-            <p>A cosmic embrace, a perfect blend of elegance and mystery.</p>
-        </div>
-        <div class="showcase-item">
-            <img src="ring4.jpg" alt="Galaxy’s Embrace" />
-            <h3>Galaxy’s Embrace</h3>
-            <p>A cosmic embrace, a perfect blend of elegance and mystery.</p>
-        </div>
-        <div class="showcase-item">
-            <img src="ring4.jpg" alt="Galaxy’s Embrace" />
-            <h3>Galaxy’s Embrace</h3>
-            <p>A cosmic embrace, a perfect blend of elegance and mystery.</p>
-        </div>
-        <div class="showcase-item">
-            <img src="ring4.jpg" alt="Galaxy’s Embrace" />
-            <h3>Galaxy’s Embrace</h3>
-            <p>A cosmic embrace, a perfect blend of elegance and mystery.</p>
-        </div>
-        <div class="showcase-item">
-            <img src="ring4.jpg" alt="Galaxy’s Embrace" />
-            <h3>Galaxy’s Embrace</h3>
-            <p>A cosmic embrace, a perfect blend of elegance and mystery.</p>
-        </div>
-        <div class="showcase-item">
-            <img src="ring4.jpg" alt="Galaxy’s Embrace" />
-            <h3>Galaxy’s Embrace</h3>
-            <p>A cosmic embrace, a perfect blend of elegance and mystery.</p>
-        </div>
-        <div class="showcase-item">
-            <img src="ring4.jpg" alt="Galaxy’s Embrace" />
-            <h3>Galaxy’s Embrace</h3>
-            <p>A cosmic embrace, a perfect blend of elegance and mystery.</p>
-        </div>
-    </div>
-
-    <!-- See More Button -->
-    <div style="text-align: center; padding: 20px;">
-        <a href="#" class="cta-button">See More</a>
-    </div>
-
-    <!-- Scroll Arrow Button (Showcase to Footer) -->
-    <div class="scroll-button-container">
-        <i class="fas fa-arrow-up scroll-arrow" onclick="window.scrollTo({ top: document.querySelector('footer').offsetTop, behavior: 'smooth' });"></i>
-    </div>
-
-    <!-- Footer Section -->
     <footer>
-        <p>&copy; 2025 Thuraya Rings | Crafted for the stars</p>
-        <p><a href="#">Privacy Policy</a> | <a href="#">Contact Us</a></p>
+        <p>&copy; 2025 Thuraya Antiques. All Rights Reserved. Developed by Abdulghafur.</p>
     </footer>
-
-    <!-- AOS Script for Scroll Animations -->
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-    <script>
-        AOS.init(); // Initialize AOS Animations
-    </script>
-
-    <!-- Particles.js Script for Starfield Animation -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script>
-        particlesJS("particles-js", {
-            "particles": {
-                "number": {
-                    "value": 80,
-                    "density": {
-                        "enable": true,
-                        "value_area": 800
-                    }
-                },
-                "color": {
-                    "value": "#f0c674" /* Gold */
-                },
-                "shape": {
-                    "type": "circle",
-                    "stroke": {
-                        "width": 0,
-                        "color": "#000000"
-                    },
-                    "polygon": {
-                        "nb_sides": 5
-                    }
-                },
-                "opacity": {
-                    "value": 0.5,
-                    "random": true,
-                    "anim": {
-                        "enable": true,
-                        "speed": 1,
-                        "opacity_min": 0.1
-                    }
-                },
-                "size": {
-                    "value": 3,
-                    "random": true,
-                    "anim": {
-                        "enable": false
-                    }
-                },
-                "line_linked": {
-                    "enable": true,
-                    "distance": 150,
-                    "color": "#f0c674", /* Gold */
-                    "opacity": 0.4,
-                    "width": 1
-                },
-                "move": {
-                    "enable": true,
-                    "speed": 2,
-                    "direction": "none",
-                    "random": false,
-                    "straight": false,
-                    "out_mode": "out",
-                    "bounce": false,
-                    "attract": {
-                        "enable": false,
-                        "rotateX": 600,
-                        "rotateY": 1200
-                    }
-                }
-            },
-            "interactivity": {
-                "detect_on": "canvas",
-                "events": {
-                    "onhover": {
-                        "enable": true,
-                        "mode": "repulse"
-                    },
-                    "onclick": {
-                        "enable": true,
-                        "mode": "push"
-                    }
-                }
-            },
-            "retina_detect": true
-        });
-    </script>
-
 </body>
 </html>
