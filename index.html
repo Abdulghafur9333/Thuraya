@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thuraya - Celestial Jewels</title>
+    <style>
+        :root {
+            --gold: linear-gradient(135deg, #C5A880 0%, #E7D4B3 100%);
+            --platinum: #E8E8E8;
+            --eclipse: radial-gradient(circle, rgba(10,10,18,0.9) 20%, rgba(10,10,18,0.95) 70%);
+            --deep-space: #0A0A12;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: var(--eclipse), url('image.png') center/cover fixed;
+            font-family: 'Cormorant Garamond', serif;
+            overflow-x: hidden;
+        }
+       .luxury-links {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    font-family: 'Cinzel', serif;
+}
+
+.luxury-link {
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.luxury-link:hover {
+    color: #C5A880;
+    text-shadow: 0 0 15px rgba(197,168,128,0.3);
+}
+
+.gold-separator {
+    background-image: var(--gold);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: bold;
+}
+.dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: rgba(10,10,18,0.95);
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+            text-align: left;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            display: block;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .dropdown-content a:hover {
+            background: rgba(197,168,128,0.3);
+        }
+
+        .dropdown:hover .dropdown-content, .dropdown:focus-within .dropdown-content {
+            display: block;
+        }
+
+
+        .luxury-container {
+            height: 100vh;
+            display: grid;
+            place-items: center;
+            perspective: 1000px;
+        }
+
+        .brand-matrix {
+            text-align: center;
+            transform-style: preserve-3d;
+            animation: matrixEntrance 2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+        }
+
+        .thuraya-title {
+            font-size: 6.5rem;
+            margin: 0;
+            background-image: var(--gold);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            position: relative;
+            filter: drop-shadow(0 0 20px rgba(197,168,128,0.3));
+        }
+
+        .thuraya-title::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40%;
+            height: 3px;
+            background: var(--gold);
+            animation: lineReveal 1.5s 0.5s ease-out forwards;
+        }
+
+        .tagline {
+            font-size: 1.8rem;
+            color: var(--platinum);
+            letter-spacing: 0.15em;
+            margin: 2rem 0;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: textReveal 1s 1.2s ease-out forwards;
+            text-shadow: 0 0 15px rgba(232,232,232,0.2);
+        }
+
+        .welcome-line {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            color: rgba(232,232,232,0.9);
+            letter-spacing: 0.1em;
+            text-decoration: none;
+            cursor: pointer;
+            opacity: 0;
+            animation: fadeIn 1s 1.5s forwards;
+            position: relative;
+            transition: all 0.3s ease;
+            margin: 1rem 0;
+            display: inline-block;
+        }
+
+        .welcome-line:hover {
+            color: #C5A880;
+            text-shadow: 0 0 15px rgba(197,168,128,0.3);
+        }
+
+        .welcome-line::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            background: #C5A880;
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+
+        .welcome-line:hover::after {
+            width: 100%;
+        }
+
+        .monogram {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            color: var(--platinum);
+            letter-spacing: 0.5em;
+            opacity: 0;
+            animation: fadeIn 1s 2s ease-out forwards;
+            position: relative;
+            padding-top: 2rem;
+        }
+
+        .monogram::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1px;
+            height: 40px;
+            background: var(--gold);
+        }
+
+        @keyframes matrixEntrance {
+            0% { opacity: 0; transform: translateZ(200px) rotateX(45deg); }
+            100% { opacity: 1; transform: translateZ(0) rotateX(0); }
+        }
+
+        @keyframes lineReveal {
+            0% { width: 0; opacity: 0; }
+            100% { width: 40%; opacity: 1; }
+        }
+
+        @keyframes textReveal {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        .particle {
+            position: absolute;
+            background: var(--gold);
+            border-radius: 50%;
+            animation: particleFloat 3s infinite;
+        }
+
+        @keyframes particleFloat {
+            0%, 100% { transform: translateY(0) scale(0.5); opacity: 0.3; }
+            50% { transform: translateY(-20px) scale(1); opacity: 0.6; }
+        }
+
+        .luxury-cursor {
+            position: fixed;
+            width: 40px;
+            height: 40px;
+            border: 2px solid #C5A880;
+            border-radius: 50%;
+            pointer-events: none;
+            mix-blend-mode: difference;
+            transition: transform 0.3s, opacity 0.3s;
+            z-index: 999;
+        }
+
+        .galaxy-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, 
+                rgba(10,10,18,0.95) 20%, 
+                rgba(10,10,18,0.8) 60%,
+                rgba(10,10,18,0.6) 100%);
+            backdrop-filter: blur(15px);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.8s ease;
+            z-index: 1000;
+        }
+
+        .galaxy-container {
+            position: absolute;
+            width: 200vw;
+            height: 200vh;
+            animation: galaxy-rotate 120s linear infinite;
+        }
+
+        .star {
+            position: absolute;
+            background: var(--platinum);
+            border-radius: 50%;
+            animation: star-twinkle 3s infinite;
+        }
+
+        @keyframes galaxy-rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes star-twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="luxury-cursor"></div>
+    
+    <div class="luxury-container">
+        <div class="brand-matrix">
+            <h1 class="thuraya-title">
+                <img src="assets/Asset 12@3x.png" alt="Thuraya Logo" style="max-width: 250px; height: auto;">
+            </h1>
+            <p class="luxury-links">
+                
+                 <a href="home.html" class="luxury-link">Products</a>
+                <span class="gold-separator">|</span>
+                <a href="about.html" class="luxury-link">About Us</a> 
+                <span class="gold-separator">|</span>
+                <a href="jewgame.html" class="luxury-link">Trivia</a>
+            </p>
+
+
+        </div>
+    </div>
+
+    <div class="galaxy-overlay" id="galaxyOverlay">
+        <div class="galaxy-container" id="galaxyContainer"></div>
+    </div>
+
+    <script>
+        // Particle System
+        function createParticles() {
+            const container = document.body;
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                particle.style.width = particle.style.height = `${Math.random() * 4 + 2}px`;
+                particle.style.animationDelay = `${Math.random() * 2}s`;
+                container.appendChild(particle);
+            }
+        }
+        createParticles();
+
+        // Luxury Cursor
+        const cursor = document.querySelector('.luxury-cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.transform = `translate(${e.clientX - 20}px, ${e.clientY - 20}px)`;
+        });
+
+        // Interactive Background
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            document.body.style.backgroundPosition = `${x * 50}% ${y * 50}%`;
+        });
+
+        // Galaxy Functions
+        function createStars(container, count = 200) {
+            for(let i = 0; i < count; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.cssText = `left: ${Math.random() * 100}%; top: ${Math.random() * 100}%; width: ${Math.random() * 3}px; height: ${Math.random() * 3}px; animation-delay: ${Math.random() * 3}s;`;
+                container.appendChild(star);
+            }
+        }
+
+        function exploreGalaxy(event) {
+            event.preventDefault();
+            const overlay = document.getElementById('galaxyOverlay');
+            const galaxyContainer = document.getElementById('galaxyContainer');
+            
+            if(overlay.style.opacity === '1') {
+                overlay.style.opacity = '0';
+            } else {
+                overlay.style.opacity = '1';
+                if(!galaxyContainer.children.length) {
+                    createStars(galaxyContainer, 500);
+                }
+            }
+
+            // Particle Burst
+            const particles = 50;
+            for(let i = 0; i < particles; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                const rect = event.target.getBoundingClientRect();
+                
+                particle.style.cssText = `
+                    left: ${rect.left + rect.width/2}px;
+                    top: ${rect.top + rect.height/2}px;
+                    width: ${Math.random() * 6 + 3}px;
+                    height: ${Math.random() * 6 + 3}px;
+                    animation-delay: ${Math.random() * 0.5}s;
+                    background: linear-gradient(45deg, #C5A880 0%, #E7D4B3 50%, #FFFFFF 100%);
+                `;
+                
+                document.body.appendChild(particle);
+                setTimeout(() => particle.remove(), 1000);
+            }
+        }
+    </script>
+</body>
+</html>

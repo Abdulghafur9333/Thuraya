@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Thuraya Antiques</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Playfair Display', serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            color: #fff;
+        }
+        
+       .logo img {
+    width: 150px; /* Adjust as needed */
+    height: auto;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px; /* Adjust padding to fit navbar height */
+    background-color: black;
+    position: relative;
+    height: 70px; /* Set a fixed height if needed */
+}
+
+
+
+        
+        .about-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 50px 10%;
+            gap: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-container::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 1%, rgba(0,0,0,0) 50%);
+            pointer-events: none;
+        }
+
+        .about-container::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 100"><circle cx="10" cy="10" r="1" fill="white"/><circle cx="40" cy="20" r="0.8" fill="white"/><circle cx="70" cy="50" r="1.2" fill="white"/><circle cx="90" cy="80" r="0.9" fill="white"/></svg>');
+            opacity: 0.6;
+            pointer-events: none;
+        }
+        
+       
+
+        .history {
+            text-align: center;
+            padding: 50px 10%;
+            background-color: #222;
+        }
+        
+        .history h2 {
+            color: gold;
+        }
+        
+        .history-timeline {
+            max-width: 800px;
+            margin: auto;
+        }
+        
+        .history-item {
+            background: #333;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            color: white;
+        }
+        
+        .social {
+            text-align: center;
+            padding: 20px;
+            background: black;
+        }
+
+        .social a {
+            color: gold;
+            font-size: 24px;
+            margin: 0 15px;
+            transition: 0.3s;
+        }
+        
+        .social a:hover {
+            color: white;
+        }
+        
+.toggle-container {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+    width: 100%;
+    position: absolute;
+    top: 0;
+}
+        .toggle-container button {
+            padding: 12px 24px;
+            margin: 0 10px;
+            border: none;
+            background: #d4af37;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 25px;
+            transition: background 0.3s;
+        }
+        .toggle-container button:hover {
+            background: #b38e22;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 40px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .gallery-item {
+            text-align: center;
+        }
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+        .price {
+            font-size: 18px;
+            color: #d4af37;
+            margin-top: 10px;
+        }
+        .description {
+            font-size: 14px;
+            color: #ccc;
+            margin-top: 5px;
+        }
+      .contact-button {
+    display: block;
+    text-align: center;
+    background: #d4af37;
+    color: white;
+    padding: 15px 30px;
+    margin: 40px auto 0;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 25px;
+    width: 200px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+        footer {
+            background: black;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .about-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about-image img {
+                max-width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="assets/Asset 14@3x.png" alt="Thuraya Antiques Logo">
+        </div>
+       
+    </header>
+
+    <section class="about-container">
+        <div class="toggle-container">
+        <button onclick="showCategory('necklaces')">Necklaces</button>
+        <button onclick="showCategory('rings')">Rings</button>
+    </div>
+    
+    <div class="gallery" id="gallery"></div>
+
+    <a href="contact.html" class="contact-button">Contact Us</a>
+
+      <script>
+        const products = {
+            necklaces: [
+                { img: "neck2.jpg", price: "$150", desc: "Handcrafted gold necklace." },
+                { img: "neck3.jpg", price: "$200", desc: "Elegant diamond-studded design." },
+                { img: "neck4.jpg", price: "$180", desc: "Classic and timeless piece." },
+                { img: "neck5.jpg", price: "$220", desc: "Luxury-inspired statement necklace." },
+                { img: "neck6.jpg", price: "$175", desc: "Sophisticated pearl and gold mix." },
+                { img: "neck7.jpg", price: "$190", desc: "Chic and modern simplicity." }
+            ],
+            rings: [
+                { img: "ring1.jpg", price: "$120", desc: "Elegant gold band ring." },
+                { img: "ring2.jpg", price: "$140", desc: "Diamond-encrusted luxury." },
+                { img: "ring3.jpg", price: "$160", desc: "Bold and striking statement ring." },
+                { img: "ring4.jpg", price: "$130", desc: "Minimalist gold elegance." },
+                { img: "ring5.jpg", price: "$200", desc: "Intricate handcrafted detail." },
+                { img: "ring6.jpg", price: "$170", desc: "Sleek modern luxury." },
+                { img: "ring7.jpg", price: "$145", desc: "Dainty and stylish." },
+                { img: "ring8.jpg", price: "$210", desc: "Classic with a unique twist." }
+            ]
+        };
+
+        function showCategory(category) {
+            const gallery = document.getElementById("gallery");
+            gallery.innerHTML = "";
+            products[category].forEach(item => {
+                const div = document.createElement("div");
+                div.className = "gallery-item";
+                div.innerHTML = `<img src="assets/${item.img}" alt="${category}">
+                                 <div class="price">${item.price}</div>
+                                 <div class="description">${item.desc}</div>`;
+                gallery.appendChild(div);
+            });
+        }
+
+        showCategory('necklaces');
+    </script>
+           </section>
+
+   
+    <section class="social">
+        <h2>Follow Us</h2>
+        <a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Thuraya Antiques. All Rights Reserved. Developed by Abdulghafur.</p>
+    </footer>
+</body>
+</html>
