@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
-        
+
         body {
             font-family: 'Playfair Display', serif;
             margin: 0;
@@ -15,9 +15,9 @@
             background-color: #1a1a1a;
             color: #fff;
         }
-        
+
         .logo img {
-            width: 150px; 
+            width: 150px;
             height: auto;
         }
 
@@ -70,37 +70,36 @@
             max-width: 1200px;
             margin: auto;
         }
-        
+
         .gallery-item {
             text-align: center;
         }
-        
+
         .gallery img {
             width: 100%;
-            max-width: 250px;
-            height: auto;
+            height: 250px; /* Fixed height for consistency */
             border-radius: 10px;
             box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s ease-in-out;
             object-fit: cover;
         }
-        
+
         .gallery img:hover {
             transform: scale(1.05);
         }
-        
+
         .price {
             font-size: 18px;
             color: #d4af37;
             margin-top: 10px;
         }
-        
+
         .description {
             font-size: 14px;
             color: #ccc;
             margin-top: 5px;
         }
-        
+
         .contact-button {
             display: block;
             text-align: center;
@@ -122,11 +121,29 @@
             padding: 20px;
         }
 
+        /* Responsive Design */
         @media (max-width: 768px) {
             .gallery {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+                padding: 20px;
+            }
+
+            .gallery img {
+                height: 180px;
             }
         }
+
+        @media (max-width: 480px) {
+            .gallery {
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            .gallery img {
+                height: auto; /* Ensure images maintain aspect ratio */
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -155,7 +172,7 @@
                 { img: "neck5.jpg", price: "$220", desc: "Beautifully crafted luxury piece." },
                 { img: "neck6.jpg", price: "$250", desc: "Unique Arabian-inspired design." },
                 { img: "neck7.jpg", price: "$275", desc: "Stylish and modern gold piece." },
-                { img: "neck8.jpg", price: "$300", desc: "Exclusive hand-crafted elegance." }
+                { img: "neck7.jpg", price: "$300", desc: "Exclusive hand-crafted elegance." }
             ],
             rings: [
                 { img: "ring1.jpg", price: "$120", desc: "Elegant gold band ring." },
@@ -184,7 +201,7 @@
 
         showCategory('necklaces');
     </script>
-    
+
     <footer>
         <p>&copy; 2025 Thuraya Antiques. All Rights Reserved. Developed by Abdulghafur.</p>
     </footer>
